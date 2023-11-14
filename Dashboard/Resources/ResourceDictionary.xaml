@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:Dashboard.Views="clr-namespace:Dashboard.Views"
+                    xmlns:Dashboard.ViewModels ="clr-namespace:Dashboard.ViewModels">
+    <DataTemplate DataType="{x:Type Dashboard.ViewModels:Scelta1ViewModel}">
+        <Dashboard.Views:Scelta1View/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type Dashboard.ViewModels:Scelta2ViewModel}">
+        <Dashboard.Views:Scelta2View/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type Dashboard.ViewModels:Scelta3ViewModel}">
+        <Dashboard.Views:Scelta3View/>
+    </DataTemplate>
+</ResourceDictionary>
