@@ -11,7 +11,10 @@
         <ViewModels:Scelta3ViewModel/>
     </UserControl.DataContext>
     <StackPanel Orientation="Vertical">
-        <Image Name="Immagine" Source="{Binding PathImmagine}" Width="100" Height="100"></Image>
+        <Image Name="Immagine" Source="{Binding PathImmagine, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Width="100" Height="100"></Image>
         <Button Click="ShowFilesDialog" Width="100" Height="30">Open files</Button>
+        <TextBox Text="{Binding Nome}" Width="200"/>
+        <TextBox Text="{Binding Cognome}" Width="200"/>
+        <Button Command="{Binding SalvaCommand}" Width="100" Height="100" Content="Salva"/>
     </StackPanel>
 </UserControl>

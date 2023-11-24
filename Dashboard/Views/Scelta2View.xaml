@@ -4,10 +4,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dashboard.Views"
+        xmlns:viewModels="clr-namespace:Dashboard.ViewModels"
         mc:Ignorable="d"
-         Height="450" Width="800">
+             Background="White"
+        Height="450" Width="800">
+    <UserControl.DataContext>
+        <viewModels:Scelta2ViewModel/>
+    </UserControl.DataContext>
     <Grid>
-        <Label>Tia</Label>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+    <ListView ItemsSource="{Binding ListaStudenti}" Grid.Column="0"
+              SelectedItem="{Binding StudenteSelezionato}"
+              >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nome">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Nome}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Cognome">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Cognome}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Foto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImmagineProfilo}" Width="50" Height="50"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Remove Item"
+                              Command="{Binding RemoveItemCommand}"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <Image Name="Immagine" Source="{Binding StudenteSelezionato.ImmagineProfilo}" Width="100" Height="100"></Image>
+                <TextBlock Text="{Binding StudenteSelezionato.Nome}" Width="200"/>
+                <TextBlock Text="{Binding StudenteSelezionato.Cognome}" Width="200"/>
+        </StackPanel>
     </Grid>
+
 </UserControl>

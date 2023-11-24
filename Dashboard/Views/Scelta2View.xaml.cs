@@ -23,8 +23,6 @@ namespace Dashboard.Views
         public Scelta2View()
         {
             InitializeComponent();
-            DataContext = new Scelta1ViewModel();
-
         }
     }
 }
