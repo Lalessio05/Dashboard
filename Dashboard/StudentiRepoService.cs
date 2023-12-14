@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace Dashboard
 {
-   public  class StudentiRepoService
+   public class StudentiRepoService
     {
-        public ObservableCollection<Studente> Studenti { get; set; } = new();
+        public ObservableCollection<Studente> Studenti { get; set; } = new(JsonManagement.ReadCollection<Studente>("ciao.json"));
 
         private static Lazy<StudentiRepoService> instance = new (() => new StudentiRepoService());
         public static StudentiRepoService Instance => instance.Value;
+
     }
 }
 
